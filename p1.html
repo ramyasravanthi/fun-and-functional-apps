@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BMI</title>
+        <style>
+            body{
+                font-style: italic;
+                background-color: aliceblue;
+                margin: 10%;   
+                
+                overflow: hidden;
+            }
+            h3{
+                color:white;
+            }
+            h1{
+                text-align: center;
+            }
+            input{
+                width: 40%;
+                
+            }
+            div{
+                text-align: left;
+                border-radius: 20px;
+                box-shadow: rgb(13, 27, 42)0px 20px 30px -10px;
+                background-color: black;
+                color: aliceblue;
+                padding: 5%;
+                margin-top: 15%;
+                margin-left: 25%;
+                margin-right: 30%;
+            }
+            h4{
+                color:  red;
+            }
+            button{
+                border-radius: 0px;
+                background-color: black;
+                color: rgb(238, 236, 235);
+                font-style: oblique;
+                cursor: pointer;
+                height: 25px;
+                border: 2px solid white;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div><h1>BMI Calculator</h1>
+            <span><h2>Height(CM):
+            <input placeholder="Enter height " step="0.01" type="number"  id="inputheight"></h2>
+        </span><h4 id="heightmis"></h4>
+    <span><h2>Weight(KG):
+            <input placeholder="Enter weight " step="0.01" type="number"   id="inputweight"></h2></span>
+            <h4 id="weightmis"></h4>
+            <button onclick="cal()">CALCULATE</button>
+            <h3 id="output"></h3>
+        </div>
+    </body>
+    <script>
+         function cal(){
+         var height=parseFloat(document.getElementById('inputheight').value);
+        var weight=parseFloat(document.getElementById('inputweight').value);
+       var h=false;
+       var w=false;
+         if(height===''|| height<=0){
+            document.getElementById('heightmis').innerHTML='please provide a valid height';
+         }
+         else{
+            h=true;
+         }
+         if(weight===''|| weight<=0){
+            document.getElementById('weightmis').innerHTML='please provide a valid weight';
+         }
+         else{
+            w=true;
+        }
+        setTimeout(function(){
+                document.getElementById('heightmis').innerHTML = '';
+                document.getElementById('weightmis').innerHTML = '';
+            }, 2000);
+        if (h && w){
+            
+           var output=(weight/((height*height)/10000)).toFixed(2);
+            if(output < 18.6){
+                document.getElementById('output').innerHTML='Under weight:'+output;
+
+            }
+            else if(output>=18.6 && output<24.9){
+                document.getElementById('output').innerHTML='Healthy:'+output;
+            }
+            else{
+                document.getElementById('output').innerHTML='Over weight:'+output;
+            
+            }
+           
+        }
+        else{
+            alert('There is an error!');
+            document.getElementById('output').innerHTML='';
+            
+        }
+
+            
+        }
+
+    </script>
+</html>

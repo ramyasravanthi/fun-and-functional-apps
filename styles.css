@@ -1,0 +1,97 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the container and content */
+    padding: 20px;
+    margin: 0;
+    font-family: Arial, sans-serif; /* Optional: change font family */
+    background-color: lightblue; 
+}
+
+.title {
+    font-size: 4em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color:navy;
+}
+
+
+.project-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 50px; /* Horizontal gap */
+    justify-items: center;
+    align-items: center;
+    height: 30%; /* Ensure the container takes full height */
+}
+
+.project-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 300px; 
+    margin: 50px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Required for absolutely positioning the name */
+    background-color: #ffffff;
+    border-radius: 10px; /* Rounded corners for card appearance */
+    overflow: hidden; /* Clip the overflow */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Card shadow */
+}
+
+.project-link:hover {
+    transform: translateY(-10px); /* Lift the card on hover */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Darken the shadow on hover */
+}
+
+.project-link::after {
+    content: attr(data-name);
+    position: absolute;
+    bottom: -30px; /* Position the text below the image */
+    width: 100%;
+    text-align: center;
+    color: black; /* Change to your desired text color */
+    font-size: 0.9em;
+}
+
+.project1, .project2, .project3, .project4 {
+    background-size: cover;
+    background-position: center;
+    width: 300px;
+    height: 300px; /* Adjust height for image */
+}
+
+.project1 {
+    background-image: url('image1.jpg');
+}
+
+.project2 {
+    background-image: url('image2.jpg');
+}
+
+.project3 {
+    background-image: url('image3.jpg');
+}
+
+.project4 {
+    background-image: url('image4.jpg');
+}
+
+.project-name {
+    position: absolute;
+    bottom: 10px; /* Position the text just inside the bottom of the card */
+    width: 100%;
+    text-align: center;
+    color: white; /* Change the text color to your preference */
+    font-size: 1em;
+    background-color: rgba(0, 0, 0, 0.6); /* Optional: add a background for better readability */
+    padding: 5px 0; /* Add padding to the text */
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>game</title>
+        <style>
+            h1{
+                font-style: italic;
+               margin-top: 8%;
+               margin-bottom: 3%;
+               
+            }
+            img{
+                width: 100px;
+                height: 100px;
+                cursor: pointer;
+                border-radius: 10px;
+               
+            }
+            body{
+               text-align: center;
+               
+            }
+            .hide {
+               filter: brightness(0.0); 
+            }
+            .show{
+                filter: brightness(1.0);
+            }
+            h3{
+                color: brown;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>MATCH THE FRUITS</h1>
+
+   <div> <img  class="hide" onclick="clicked(this)" src="https://kidseatincolor.com/wp-content/uploads/2021/10/Pineapple.jpg">    
+    <img class="hide" onclick="clicked(this)" src="https://www.shutterstock.com/image-photo/dragon-fruit-pitaya-isolated-on-600nw-772134619.jpg">
+    <img class="hide" onclick="clicked(this)"  src="https://m.media-amazon.com/images/I/71MQD-Dj1gL.jpg">
+    <img class="hide" onclick="clicked(this)"  src="https://www.healthxchange.sg/sites/hexassets/Assets/food-nutrition/good-reasons-to-eat-a-banana-today.jpg">
+    </div>
+    <div>
+        <img class="hide"  onclick="clicked(this)" src="https://media.istockphoto.com/id/183422512/photo/fresh-red-apples-on-white-background.jpg?s=612x612&w=0&k=20&c=OmfmcQLh3mwp4pFVQn9Sr2U8VCyIgGtV6fuaDmd3Yrk=">
+        <img  class="hide" onclick="clicked(this)"  src="https://www.shutterstock.com/image-photo/dragon-fruit-pitaya-isolated-on-600nw-772134619.jpg">
+         <img class="hide"  onclick="clicked(this)"  src="https://media.istockphoto.com/id/864053288/photo/whole-and-half-of-ripe-papaya-fruit-with-seeds-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=hJ5DpNTt0oKjZMIHYV6gUHTntB2zIs_78dPKiuDUXgE=">
+        <img class="hide"  onclick="clicked(this)" src="https://media.istockphoto.com/id/529964085/photo/mango.jpg?s=612x612&w=0&k=20&c=rmcMZlLOZFdn4NhUcjnaJ3EBHKYZQ4xH4xzpzFU4JgY=">
+    </div>
+    <div> <img  class="hide" onclick="clicked(this)"  src="https://kidseatincolor.com/wp-content/uploads/2021/10/Pineapple.jpg">    
+        <img class="hide"  onclick="clicked(this)" src="https://www.healthxchange.sg/sites/hexassets/Assets/food-nutrition/good-reasons-to-eat-a-banana-today.jpg">
+        <img class="hide"  onclick="clicked(this)" src="https://5.imimg.com/data5/CK/LM/MY-46960546/fresh-red-strawberry-500x500.jpg">
+         
+          <img class="hide" onclick="clicked(this)"  src="https://media.istockphoto.com/id/183422512/photo/fresh-red-apples-on-white-background.jpg?s=612x612&w=0&k=20&c=OmfmcQLh3mwp4pFVQn9Sr2U8VCyIgGtV6fuaDmd3Yrk=">
+        
+        </div>
+        <div>
+            
+            <img class="hide" onclick="clicked(this)"  src="https://5.imimg.com/data5/CK/LM/MY-46960546/fresh-red-strawberry-500x500.jpg">
+            <img class="hide"  onclick="clicked(this)" src="https://media.istockphoto.com/id/864053288/photo/whole-and-half-of-ripe-papaya-fruit-with-seeds-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=hJ5DpNTt0oKjZMIHYV6gUHTntB2zIs_78dPKiuDUXgE=">
+            <img class="hide"  onclick="clicked(this)" src="https://m.media-amazon.com/images/I/71MQD-Dj1gL.jpg">
+            <img class="hide"  onclick="clicked(this)" src="https://media.istockphoto.com/id/529964085/photo/mango.jpg?s=612x612&w=0&k=20&c=rmcMZlLOZFdn4NhUcjnaJ3EBHKYZQ4xH4xzpzFU4JgY=">
+        </div>
+        <h3 id="over"></h3>
+    <script>
+        let card1=null;
+        let card2=null;
+        let pairs=0;
+        function clicked(card){
+            if(card1===null){
+            card.className="show";
+            card1=card;
+            
+            } 
+           else if(card2===null){
+            card.className="show";
+            card2=card;
+            setTimeout("match();",1000);
+            } 
+        }
+           function match(){      
+        if(card1.src==card2.src){
+            
+            card1=null;
+        card2=null;
+        pairs=pairs+1;
+        if(pairs===8){
+            document.getElementById("over").innerHTML="Hurray! You matched the fruits.";
+            setTimeout("reset();",3000);
+        }
+        }
+        else{
+            card1.className="hide";
+            card2.className="hide";
+            card1=null;
+        card2=null;
+        }
+           }
+           function reset(){
+            var images=document.getElementsByTagName("img");
+            for (var i = 0; i < images.length; i++) {
+                images[i].className = "hide";
+            }
+
+            card1=null;
+        card2=null;
+        pairs=0;
+        
+        document.getElementById("over").innerHTML="";
+           }
+    </script>
+
+</body>
+</html>
