@@ -86,15 +86,4 @@ To get started with these projects, follow these steps:
 - **CSS:** Styles the web pages for an appealing look and feel.
 - **JavaScript:** Implements the logic and interactivity for the applications.
 
-## Projects
 
-- **Snake Game:** `snake-game.html`, `snake-game.css`, `snake-game.js`
-- **BMI Calculator:** `bmi-calculator.html`, `bmi-calculator.css`, `bmi-calculator.js`
-- **Matching Game:** `matching-game.html`, `matching-game.css`, `matching-game.js`
-- **Weather App:** `weather-app.html`, `weather-app.css`, `weather-app.js`
-
-Feel free to explore and modify the code to learn more about how these applications are built and how they work. Enjoy coding!
-
----
-
-This README provides an overview of the Fun and Functional Apps project, detailing the individual applications included, their features, and instructions for getting started.
